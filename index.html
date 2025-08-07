@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/color-thief/2.3.0/color-thief.umd.js"></script> -->
+
+</head>
+
+<body>
+  <div class="main">
+    <div class="left">
+      <div class="card">
+        <center>
+          <img id="avatar" class="Thumbnail" src="" alt="Song Avatar" />
+        </center>
+        <br>
+        <div id="info" class="info">
+          <p><span id="title" class="title"></span></p>
+          <p><span id="artist" class="artist"></span></p>
+          <p><span id="bitrate" class="bitrate"></span></p>
+        </div>
+
+        <br />
+
+        <div id="customControls">
+
+
+          <div id="timeDisplay" class="timeControl">
+            <span id="currentTime">0:00</span>
+            <input type="range" id="seekBar" class="seekBar" value="0" min="0" max="100" />
+            <span id="totalTime">0:00</span>
+          </div>
+
+          <center>
+            <button id="playBtn" class="play"><svg fill="#ffffff" height="25px" width="25px" version="1.1" id="Layer_1"
+                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512"
+                xml:space="preserve" stroke="#ffffff">
+                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                <g id="SVGRepo_iconCarrier">
+                  <g>
+                    <g>
+                      <path
+                        d="M500.203,236.907L30.869,2.24c-6.613-3.285-14.443-2.944-20.736,0.939C3.84,7.083,0,13.931,0,21.333v469.333 c0,7.403,3.84,14.251,10.133,18.155c3.413,2.112,7.296,3.179,11.2,3.179c3.264,0,6.528-0.747,9.536-2.24l469.333-234.667 C507.435,271.467,512,264.085,512,256S507.435,240.533,500.203,236.907z">
+                      </path>
+                    </g>
+                  </g>
+                </g>
+              </svg></button>
+          </center>
+        </div>
+
+        <br />
+        <center>
+          <label for="fileInput" class="custom-file-label">
+            <svg class="ssvvgg" fill="#000000" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 364.59 364.591" xml:space="preserve">
+              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+              <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+              <g id="SVGRepo_iconCarrier">
+                <g>
+                  <g>
+                    <path
+                      d="M360.655,258.05V25c0-13.807-11.191-25-25-25H130.09c-13.807,0-25,11.193-25,25v206.27 c-10.569-3.184-22.145-4.271-34.058-2.768C29.527,233.738-0.293,268.3,4.427,305.695c4.719,37.396,42.189,63.464,83.694,58.226 c40.015-5.049,66.969-37.146,66.969-73.181V50h155.564v146.794c-10.591-3.2-22.19-4.297-34.134-2.79 c-41.504,5.237-71.323,39.798-66.604,77.193s42.188,63.464,83.694,58.227C332.951,324.458,360.655,293.275,360.655,258.05z">
+                    </path>
+                  </g>
+                </g>
+              </g>
+            </svg>
+            Audio
+          </label>
+          <input type="file" id="fileInput" multiple accept="audio/*,.lrc" placeholder="🎵" />
+        </center>
+
+      </div>
+    </div>
+    <div class="right">
+      <div id="lyrics" class=".lyrics"></div>
+    </div>
+  </div>
+
+  <audio id="player" hidden></audio>
+
+  <script src="sss.js"></script>
+  <script src="colortheif.js"></script>
+  <script src="script.js"></script>
+  <img id="hiddenCover" crossorigin="anonymous" style="display:none;" />
+  <center><p class="copyrights">Designed by <a href="https://www.instagram.com/gadget_vishwa/"> Gadget_Vishwa</span></p></center>
+</body>
+
+</html>
