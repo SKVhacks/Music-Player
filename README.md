@@ -8,6 +8,11 @@ HTML,CSS,JS based music player
 <img width="1919" height="1079" alt="sam2" src="https://github.com/user-attachments/assets/dc2efe8a-83dd-45ed-bac9-3287148ec5f4" />
 <br>
 <h1>Mine UI </h1>
+<h3>V 1.1</h3>
+<video src=""></video>
+
+<h3>V 1.0</h3>
+
 <video src="https://github.com/user-attachments/assets/5ce2a2bf-e905-4e20-8455-796f648d3115" autoplay style="height=100%"></video>
 <p>With Lyric UI ☝️</p>
 
