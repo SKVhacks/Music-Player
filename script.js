@@ -270,9 +270,7 @@ fileInput.addEventListener('change', (e) => {
   const hiddenCover = document.getElementById('hiddenCover');
   const colorThief = new ColorThief();
 
-  function isWhiteLike([r, g, b]) {
-    return r > 150 && g > 150 && b > 150;
-  }
+  
 
 
   function applyGradientFromImage(imgUrl) {
@@ -284,89 +282,24 @@ fileInput.addEventListener('change', (e) => {
 
 
 
-        for (let i = 0; i < palette.length; i++) {
-          if (isWhiteLike(palette[i])) {
-            palette[i] = [10, 10, 10, 0.5];
-          }
-        }
+        
 
         const gradientColors = palette.map(
           c => `rgba(${c[0]}, ${c[1]}, ${c[2]})`  // 0.6 = 60% opacity
         );
+        console.log(gradientColors[0]);
+        console.log(gradientColors[1]);
+        console.log(gradientColors[2]);
+        console.log(gradientColors[3]);
+        document.documentElement.style.setProperty('--a', gradientColors[4]);
+        document.documentElement.style.setProperty('--b', gradientColors[1]);
+        document.documentElement.style.setProperty('--c', gradientColors[2]);
+        document.documentElement.style.setProperty('--d', gradientColors[3]);
+       
 
-        // Build gradient frames for animation
-        const keyframes = `
-        @keyframes movingGradient {
-          
-        1.6% { background: linear-gradient( 306deg, ${gradientColors[4]}, ${gradientColors[1]}, ${gradientColors[0]}); }
-        3.2% { background: linear-gradient( 150deg, ${gradientColors[2]}, ${gradientColors[0]}, ${gradientColors[3]}); }
-        4.8% { background: linear-gradient( 114deg, ${gradientColors[1]}, ${gradientColors[3]}, ${gradientColors[2]}); }
-        6.4% { background: linear-gradient( 42deg, ${gradientColors[0]}, ${gradientColors[3]}, ${gradientColors[2]}); }
-        8%   { background: linear-gradient( 96deg, ${gradientColors[1]}, ${gradientColors[2]}, ${gradientColors[3]}); }
-        9.6% { background: linear-gradient( 354deg, ${gradientColors[4]}, ${gradientColors[3]}, ${gradientColors[2]}); }
-        11.2%{ background: linear-gradient( 288deg, ${gradientColors[4]}, ${gradientColors[0]}, ${gradientColors[1]}); }
-        12.8%{ background: linear-gradient( 180deg, ${gradientColors[2]}, ${gradientColors[3]}, ${gradientColors[0]}); }
-        14.4%{ background: linear-gradient( 270deg, ${gradientColors[3]}, ${gradientColors[4]}, ${gradientColors[0]}); }
-        16%  { background: linear-gradient( 324deg, ${gradientColors[4]}, ${gradientColors[2]}, ${gradientColors[0]}); }
-        17.6%{ background: linear-gradient( 132deg, ${gradientColors[1]}, ${gradientColors[4]}, ${gradientColors[2]}); }
-        19.2%{ background: linear-gradient( 258deg, ${gradientColors[3]}, ${gradientColors[2]}, ${gradientColors[1]}); }
-        20.8%{ background: linear-gradient( 168deg, ${gradientColors[2]}, ${gradientColors[1]}, ${gradientColors[3]}); }
-        22.4%{ background: linear-gradient( 6deg, ${gradientColors[0]}, ${gradientColors[1]}, ${gradientColors[3]}); }
-        24%  { background: linear-gradient( 312deg, ${gradientColors[4]}, ${gradientColors[1]}, ${gradientColors[2]}); }
-        25.6%{ background: linear-gradient( 48deg, ${gradientColors[0]}, ${gradientColors[3]}, ${gradientColors[4]}); }
-        27.2%{ background: linear-gradient( 234deg, ${gradientColors[3]}, ${gradientColors[1]}, ${gradientColors[0]}); }
-        28.8%{ background: linear-gradient( 0deg, ${gradientColors[0]}, ${gradientColors[1]}, ${gradientColors[2]}); }
-        30.4%{ background: linear-gradient( 222deg, ${gradientColors[3]}, ${gradientColors[0]}, ${gradientColors[2]}); }
-        32%  { background: linear-gradient( 330deg, ${gradientColors[4]}, ${gradientColors[2]}, ${gradientColors[1]}); }
-        33.6%{ background: linear-gradient( 84deg, ${gradientColors[1]}, ${gradientColors[0]}, ${gradientColors[4]}); }
-        35.2%{ background: linear-gradient( 138deg, ${gradientColors[1]}, ${gradientColors[4]}, ${gradientColors[3]}); }
-        36.8%{ background: linear-gradient( 198deg, ${gradientColors[2]}, ${gradientColors[4]}, ${gradientColors[0]}); }
-        38.4%{ background: linear-gradient( 318deg, ${gradientColors[4]}, ${gradientColors[1]}, ${gradientColors[3]}); }
-        40%  { background: linear-gradient( 60deg, ${gradientColors[0]}, ${gradientColors[4]}, ${gradientColors[2]}); }
-        41.6%{ background: linear-gradient( 192deg, ${gradientColors[2]}, ${gradientColors[3]}, ${gradientColors[4]}); }
-        43.2%{ background: linear-gradient( 276deg, ${gradientColors[3]}, ${gradientColors[4]}, ${gradientColors[1]}); }
-        44.8%{ background: linear-gradient( 72deg, ${gradientColors[1]}, ${gradientColors[0]}, ${gradientColors[2]}); }
-        46.4%{ background: linear-gradient( 312deg, ${gradientColors[4]}, ${gradientColors[1]}, ${gradientColors[2]}); }
-        48%  { background: linear-gradient( 282deg, ${gradientColors[3]}, ${gradientColors[4]}, ${gradientColors[2]}); }
-        49.6%{ background: linear-gradient( 18deg, ${gradientColors[0]}, ${gradientColors[2]}, ${gradientColors[1]}); }
-        51.2%{ background: linear-gradient( 204deg, ${gradientColors[2]}, ${gradientColors[4]}, ${gradientColors[1]}); }
-        52.8%{ background: linear-gradient( 66deg, ${gradientColors[0]}, ${gradientColors[4]}, ${gradientColors[3]}); }
-        54.4%{ background: linear-gradient( 120deg, ${gradientColors[1]}, ${gradientColors[3]}, ${gradientColors[4]}); }
-        56%  { background: linear-gradient( 126deg, ${gradientColors[1]}, ${gradientColors[4]}, ${gradientColors[0]}); }
-        57.6%{ background: linear-gradient( 348deg, ${gradientColors[4]}, ${gradientColors[3]}, ${gradientColors[1]}); }
-        59.2%{ background: linear-gradient( 108deg, ${gradientColors[1]}, ${gradientColors[3]}, ${gradientColors[0]}); }
-        60.8%{ background: linear-gradient( 24deg, ${gradientColors[0]}, ${gradientColors[2]}, ${gradientColors[3]}); }
-        62.4%{ background: linear-gradient( 294deg, ${gradientColors[4]}, ${gradientColors[0]}, ${gradientColors[2]}); }
-        64%  { background: linear-gradient( 288deg, ${gradientColors[4]}, ${gradientColors[0]}, ${gradientColors[1]}); }
-        65.6%{ background: linear-gradient( 30deg, ${gradientColors[0]}, ${gradientColors[2]}, ${gradientColors[4]}); }
-        67.2%{ background: linear-gradient( 174deg, ${gradientColors[2]}, ${gradientColors[1]}, ${gradientColors[4]}); }
-        68.8%{ background: linear-gradient( 78deg, ${gradientColors[1]}, ${gradientColors[0]}, ${gradientColors[3]}); }
-        70.4%{ background: linear-gradient( 270deg, ${gradientColors[3]}, ${gradientColors[4]}, ${gradientColors[0]}); }
-        72%  { background: linear-gradient( 162deg, ${gradientColors[2]}, ${gradientColors[1]}, ${gradientColors[0]}); }
-        73.6%{ background: linear-gradient( 204deg, ${gradientColors[2]}, ${gradientColors[4]}, ${gradientColors[1]}); }
-        75.2%{ background: linear-gradient( 216deg, ${gradientColors[3]}, ${gradientColors[0]}, ${gradientColors[1]}); }
-        76.8%{ background: linear-gradient( 96deg, ${gradientColors[1]}, ${gradientColors[2]}, ${gradientColors[3]}); }
-        78.4%{ background: linear-gradient( 54deg, ${gradientColors[0]}, ${gradientColors[4]}, ${gradientColors[1]}); }
-        80%  { background: linear-gradient( 132deg, ${gradientColors[1]}, ${gradientColors[4]}, ${gradientColors[2]}); }
-        81.6%{ background: linear-gradient( 90deg, ${gradientColors[1]}, ${gradientColors[2]}, ${gradientColors[0]}); }
-        83.2%{ background: linear-gradient( 156deg, ${gradientColors[2]}, ${gradientColors[0]}, ${gradientColors[4]}); }
-        84.8%{ background: linear-gradient( 228deg, ${gradientColors[3]}, ${gradientColors[0]}, ${gradientColors[4]}); }
-        86.4%{ background: linear-gradient( 240deg, ${gradientColors[3]}, ${gradientColors[1]}, ${gradientColors[2]}); }
-        88%  { background: linear-gradient( 102deg, ${gradientColors[1]}, ${gradientColors[2]}, ${gradientColors[4]}); }
-        89.6%{ background: linear-gradient( 300deg, ${gradientColors[4]}, ${gradientColors[0]}, ${gradientColors[3]}); }
-        91.2%{ background: linear-gradient( 192deg, ${gradientColors[2]}, ${gradientColors[3]}, ${gradientColors[4]}); }
-        96%  { background: linear-gradient( 348deg, ${gradientColors[4]}, ${gradientColors[3]}, ${gradientColors[1]}); }
-        100% { background: linear-gradient( 222deg, ${gradientColors[3]}, ${gradientColors[0]}, ${gradientColors[2]}); }
-        0%   { background: linear-gradient( 246deg, ${gradientColors[3]}, ${gradientColors[1]}, ${gradientColors[4]}); }
 
-        }
 
-        body {
-          background-size: 400% 400%;
-          animation: movingGradient 50s ease-in-out infinite;
-        }
-      `;
-
+    
         // Remove old animation styles if present
         const oldStyle = document.getElementById('animatedGradientStyle');
         if (oldStyle) oldStyle.remove();
