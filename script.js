@@ -29,6 +29,7 @@ playBtn.addEventListener('click', () => {
     player.currentTime = (seekBar.value / 100) * player.duration;
     updateSeekBar();
   });
+  // 
 
 
 
@@ -323,3 +324,4 @@ fileInput.addEventListener('change', (e) => {
 
 
 });
+
