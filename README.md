@@ -9,8 +9,11 @@ HTML,CSS,JS based music player
 <br>
 <h1>Mine UI </h1>
 <h3>V 1.1</h3>
-<video src=""></video>
-
+<!-- <video src="demo 1 - Trim.mp4" autoplay style="height=100%"></video> -->
+<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/aaf4b7be-1e52-48e6-9e61-e6f579fc80a2" />
+<p>With Lyric UI ☝️</p>
+<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/5581291d-5280-4fb2-a714-cf77745c2e38" />
+<p>Without Lyric UI ☝️</p>
 <h3>V 1.0</h3>
 
 <video src="https://github.com/user-attachments/assets/5ce2a2bf-e905-4e20-8455-796f648d3115" autoplay style="height=100%"></video>
